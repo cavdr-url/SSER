@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Lista de Estudiantes</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estudiante.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>📋 Lista Completa de Estudiantes</h1>
+            <a href="/" class="btn">🏠 Inicio</a>
+            <a href="/estadistica" class="btn">📊 Estadísticas</a>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Grado</th>
+                    <th>Promedio</th>
+                    <th>Ausentismo</th>
+                    <th>Nivel de Riesgo</th>
+                </tr>
+                {% for est in estudiantes %} 
+                    
+                    {% if est.nivel_riesgo == 'ALTO' %} 
+                        {% set emoji = '🔴' %} 
+                    {% elif est.nivel_riesgo == 'MEDIO' %} 
+                        {% set emoji = '🟡' %}
+                    {% else %} 
+                        {% set emoji = '🟢' %}                  
+                    {% endif %}
+                <tr class="{% if est.nivel_riesgo == 'ALTO' %}alto{% elif est.nivel_riesgo == 'MEDIO' %}medio{% else %}bajo{% endif %}"> 
+                <td>{{ est.id }}</td>
+                <td><a href="/estudiante/{{ est.id }}">{{ est.nombre }}</a></td>
+                <td>{{ est.grado }}</td>
+                <td>{{ est.promedio }}</td>
+                <td>{{ est.ausentismo }}</td>
+                <td>{{ emoji }} {{ est.nivel_riesgo }}</td>
+
+                {% endfor %}
+        </tr>
+            </table>
+        </div>
+    </body>
+    </html>

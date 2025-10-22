@@ -1,0 +1,41 @@
+body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                max-width: 600px;
+                margin: auto;
+            }
+            h1 {
+                text-align: center;
+            }
+            .info {
+                margin-top: 20px;
+            }
+            .info p {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+            .riesgo {
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .btn {
+                display: inline-block;
+                margin: 10px 5px;
+                padding: 10px 15px;
+                background-color: #007BFF;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            .btn:hover {
+                background-color: #0056b3;
+            }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Detalle de {estudiante['nombre']}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/detalle.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            
+<h1>👤 Perfil del Estudiante</h1>
+    <nav>
+        / <a href="/">Inicio</a> / <a href="/estudiantes"> Estudiantes</a> / Detalle</a>
+    </nav>
+
+    <h2>{{ estudiante.nombre }}</h2>
+    <p><strong>ID:</strong> {{ estudiante.id }}</p>
+    <p><strong>Grado:</strong> {{ estudiante.grado }}</p>
+    <p><strong>Promedio:</strong> {{ estudiante.promedio }}</p>
+    <p><strong>Días de ausentismo:</strong> {{ estudiante.ausentismo }}</p>
+    <p><strong>Nivel de Riesgo:</strong>
+        {% if estudiante.nivel_riesgo == 'ALTO' %}
+            🔴 {{ estudiante.nivel_riesgo }}
+        {% elif estudiante.nivel_riesgo == 'MEDIO' %}
+            🟡 {{ estudiante.nivel_riesgo }}
+        {% else %}
+            🟢 {{ estudiante.nivel_riesgo }}
+        {% endif %}
+    </p>
+
+    <button onclick="window.history.back();" class="btn">🔙 Volver</button>
+
+        </div>
+    </body>
+    </html>

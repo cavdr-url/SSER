@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Estadísticas del Sistema</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estadistica.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>📊 Estadísticas del Sistema</h1>
+            <a href="/" class="btn">🏠 Inicio</a>
+            <a href="/estudiantes" class="btn">📋 Lista</a>
+            
+            <h2>Resumen General</h2>
+            <div class="stat-box box-general">
+                <div class="number">{{ total }}</div>
+                <div class="label">Total de Estudiantes</div>
+            </div>
+            <div class="stat-box box-general">
+                <div class="number">{{ promedio_general | round(1) }}</div>
+                <div class="label">Promedio General</div>
+            </div>
+            
+            <h2>Distribución por Nivel de Riesgo</h2>
+            <div class="stat-box box-alto">
+                <div class="number">🔴 {{ riesgo_alto }}</div>
+                <div class="label">Riesgo ALTO</div>
+            </div>
+            <div class="stat-box box-medio">
+                <div class="number">🟡 {{ riesgo_medio }}</div>
+                <div class="label">Riesgo MEDIO</div>
+            </div>
+            <div class="stat-box box-bajo">
+                <div class="number">🟢 {{ riesgo_bajo }}</div>
+                <div class="label">Riesgo BAJO</div>
+            </div>
+        </div>
+    </body>
+    </html>
